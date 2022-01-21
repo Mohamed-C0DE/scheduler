@@ -3,7 +3,6 @@ import classNames from "classnames";
 import "./InterviewerListItem.scss";
 
 const InterviewerListItem = (props) => {
-  console.log(props);
   let styles = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected,
   });
