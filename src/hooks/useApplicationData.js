@@ -26,22 +26,28 @@ const useApplicationData = () => {
     });
   }, []);
 
-  const updateSpots = (request) => {
-    const days = state.days.map((day) => {
-      if (day.name === state.day) {
-        if (request === "add") {
-          return { ...day, spots: day.spots + 1 };
-        } else if (request === "remove") {
-          if (day.spots === 0) {
-            return { ...day };
-          }
-          return { ...day, spots: day.spots - 1 };
-        }
-      } else {
-        return { ...day };
+  const getSpotsForDay = function (day, appointments) {
+    let spots = 0;
+
+    // iterate the day's appointment id's
+    for (const id of day.appointments) {
+      const appointment = appointments[id];
+      if (!appointment.interview) {
+        spots++;
       }
-    });
-    return days;
+    }
+
+    return spots;
+  };
+
+  const updateSpots = (state, appointments, id) => {
+    // Get day obj
+    const dayObj = state.days.find((day) => state.day === day.name);
+    const spots = getSpotsForDay(dayObj, appointments);
+
+    const day = { ...dayObj, spots };
+
+    return state.days.map((d) => (d.name === state.day ? day : d));
   };
 
   function bookInterview(id, interview) {
@@ -59,7 +65,7 @@ const useApplicationData = () => {
       setState({
         ...state,
         appointments,
-        days: updateSpots("remove"),
+        days: updateSpots(state, appointments, id),
       })
     );
   }
@@ -79,7 +85,7 @@ const useApplicationData = () => {
       setState((prev) => ({
         ...prev,
         appointments,
-        days: updateSpots("add"),
+        days: updateSpots(prev, appointments, id),
       }))
     );
   }
