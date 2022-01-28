@@ -62,11 +62,11 @@ const useApplicationData = () => {
     };
 
     return axios.put(`/api/appointments/${id}`, appointment).then(() =>
-      setState({
-        ...state,
+      setState((prev) => ({
+        ...prev,
         appointments,
-        days: updateSpots(state, appointments, id),
-      })
+        days: updateSpots(prev, appointments, id),
+      }))
     );
   }
 
