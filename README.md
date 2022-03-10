@@ -4,13 +4,7 @@ Interview Scheduler is a react application that allows users to book and cancel 
 
 ## Final Product
 
-!["Screenshot of form when adding a new appointment"](https://github.com/Mohamed-C0DE/scheduler/blob/master/docs/add.png?raw=true)
-
-!["Screenshot of form filled in"](https://github.com/Mohamed-C0DE/scheduler/blob/master/docs/create-form.png?raw=true)
-
-!["Screenshot of when appointment is added"](https://github.com/Mohamed-C0DE/scheduler/blob/master/docs/final.png?raw=true)
-
-!["Screenshot of confirm screen when deleting an appointment"](https://github.com/Mohamed-C0DE/scheduler/blob/master/docs/confirm-delete.png?raw=true)
+!["Screenshot of final product"](https://github.com/Mohamed-C0DE/scheduler/blob/master/docs/scheduler.gif?raw=true)
 
 ## Database
 Inorder for the app to work properly please clone the repo https://github.com/Mohamed-C0DE/scheduler-api, and follow the README.md instructions to start the database API
