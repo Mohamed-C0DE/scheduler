@@ -8,6 +8,7 @@ Interview Scheduler is a react application that allows users to book and cancel 
 
 ## Tech Stack
 - React
+- SASS
 - Node
 - Express
 - PostgreSQL
